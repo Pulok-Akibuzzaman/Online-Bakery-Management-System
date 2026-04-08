@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Bakery Management System</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#" data-page="home">Sweet Delights</a>
+
+        <ul class="navbar-menu">
+          <li><a href="#" data-page="home">Home</a></li>
+          <li><a href="#" data-page="products">Products</a></li>
+          <li><a href="#" data-page="feedback">Feedback</a></li>
+        </ul>
+
+        <div class="navbar-actions"></div>
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <main id="home" class="page">
+      <section class="hero">
+        <div class="container">
+          <h1>Online Bakery Management System</h1>
+          <p>Order online, track deliveries, manage products, and run reports — all in one place.</p>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="#" data-page="products">Browse Products</a>
+            <a class="btn btn-primary" href="#" data-page="register">Create Account</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-section">
+        <div class="container">
+          <h2 class="section-title">Featured Products</h2>
+          <div id="featuredGrid" class="product-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- PRODUCTS -->
+    <main id="products" class="page hidden">
+      <section class="products-section">
+        <div class="container">
+          <div class="page-header">
+            <h2 class="section-title">Products</h2>
+            <div id="productsHint" class="hint"></div>
+          </div>
+          <div id="bestSellingBlock" class="mb-2"></div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- CART + CHECKOUT -->
+    <main id="cart" class="page hidden">
+      <section class="products-section">
+        <div class="container">
+          <h2 class="section-title">Your Cart</h2>
+
+          <div id="cartItems"></div>
+
+          <div class="cart-summary">
+            <div class="cart-total">Total: <span id="cartTotal">৳0</span></div>
+          </div>
+
+          <div class="form-container mt-2">
+            <h3 class="mb-1">Checkout</h3>
+            <form id="checkoutForm">
+              <div class="form-group">
+                <label for="paymentMethod">Payment Method (Optional)</label>
+                <select class="form-control" id="paymentMethod" name="paymentMethod">
+                  <option value="cod">Cash on Delivery</option>
+                  <option value="bkash">bKash</option>
+                  <option value="nagad">Nagad</option>
+                  <option value="card">Card</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="address">Delivery Address</label>
+                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input class="form-control" id="phone" name="phone" type="tel" required />
+              </div>
+              <button class="btn btn-success" type="submit">Place Order</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MY ORDERS (Customer) -->
+    <main id="orders" class="page hidden">
+      <section class="products-section">
+        <div class="container">
+          <div id="ordersContent"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- LOGIN -->
+    <main id="login" class="page hidden">
+      <div class="form-container">
+        <h2 class="mb-2">Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginUsername">Username</label>
+            <input class="form-control" id="loginUsername" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input class="form-control" id="loginPassword" name="password" type="password" required />
+          </div>
+          <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+        <div class="mt-1 auth-links">
+          <a href="#" class="link" data-page="forgot">Forgot password?</a>
+          <span class="dot">•</span>
+          <a href="#" class="link" data-page="register">Create account</a>
+        </div>
+        <div class="mt-2 hint">
+          Demo accounts: admin/admin123, employee1/emp123, delivery1/del123, customer1/cust123
+        </div>
+      </div>
+    </main>
+
+    <!-- REGISTER -->
+    <main id="register" class="page hidden">
+      <div class="form-container">
+        <h2 class="mb-2">Register (Customer)</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <input class="form-control" id="regName" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="regUsername">Username</label>
+            <input class="form-control" id="regUsername" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email</label>
+            <input class="form-control" id="regEmail" name="email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Password</label>
+            <input class="form-control" id="regPassword" name="password" type="password" minlength="4" required />
+          </div>
+          <button class="btn btn-primary" type="submit">Create Account</button>
+        </form>
+        <div class="mt-1 auth-links">
+          <a href="#" class="link" data-page="login">Already have an account? Login</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- FORGOT PASSWORD -->
+    <main id="forgot" class="page hidden">
+      <div class="form-container">
+        <h2 class="mb-2">Reset Password</h2>
+        <form id="forgotPasswordForm">
+          <div class="form-group">
+            <label for="fpUsername">Username</label>
+            <input class="form-control" id="fpUsername" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="fpEmail">Email</label>
+            <input class="form-control" id="fpEmail" name="email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label for="fpNewPassword">New Password</label>
+            <input class="form-control" id="fpNewPassword" name="newPassword" type="password" minlength="4" required />
+          </div>
+          <button class="btn btn-primary" type="submit">Update Password</button>
+        </form>
+        <div class="mt-1 auth-links">
+          <a href="#" class="link" data-page="login">Back to login</a>
+        </div>
+        <div class="mt-2 hint">Note: This is a frontend demo reset (localStorage).</div>
+      </div>
+    </main>
+
+    <!-- FEEDBACK HISTORY -->
+    <main id="feedback" class="page hidden">
+      <section class="products-section">
+        <div class="container">
+          <h2 class="section-title">Feedback History</h2>
+          <div id="feedbackSummary" class="hint mb-1"></div>
+          <div id="myOrdersBlock"></div>
+          <div id="feedbackList" class="feedback-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- DASHBOARD (Admin / Employee / Delivery) -->
+    <main id="dashboard" class="page hidden">
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <div class="sidebar-title">Dashboard</div>
+            <div id="sidebarRole" class="sidebar-subtitle"></div>
+          </div>
+          <ul id="sidebarMenu" class="sidebar-menu"></ul>
+        </aside>
+        <section class="dashboard-content">
+          <div id="dashboardContent"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- MODAL (reused for product + review + user forms) -->
+    <div id="appModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Modal</h3>
+          <span class="close-modal" title="Close">&times;</span>
+        </div>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Sweet Delights Bakery</h3>
+            <p>Frontend demo for Online Bakery Management System.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Roles</h3>
+            <p>Admin • Employee • Delivery • Customer</p>
+          </div>
+          <div class="footer-section">
+            <h3>Note</h3>
+            <p>Data is synced to the server database with local cache fallback.</p>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2026 Sweet Delights</div>
+      </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
