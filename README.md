@@ -64,6 +64,19 @@ Initial seed script is defined in:
 - `GET /api/state` - read persisted application state
 - `PUT /api/state` - save persisted application state
 
+## Features
+
+- User authentication and role-based access control.
+- Product catalog with categories, descriptions, and images.
+- Shopping cart functionality with real-time updates.
+- Order management system for customers and admins.
+- Ingredient inventory tracking with low-stock alerts.
+- Recipe management for product creation.
+- Review system for customer feedback.
+- Persistent data storage using SQLite.
+- Backend API for state synchronization.
+- Fallback to local cache when backend is offline.
+
 ## Notes
 
 - On startup, backend executes `db/schema.sql` then `db/seed.sql`.
