@@ -24,6 +24,10 @@ The database persists core and operational data:
 
 ## Run Locally
 
+Prerequisite: Install Node.js before running this project.
+
+Download Node.js: https://nodejs.org/en/download
+
 1. Install dependencies:
 
 ```bash
